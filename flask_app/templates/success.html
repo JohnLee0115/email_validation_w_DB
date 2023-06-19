@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Success</title>
+</head>
+
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .top {
+        display: flex;
+        justify-content: center;
+    }
+
+    .green {
+        margin-top: 50px;
+        width: 800px;
+        height: 100px;
+        border: solid 3px black;
+        text-align: center;
+        font-size: 22pt;
+        padding-top: 10px;
+        background-color: rgb(100,168,90);
+    }
+
+    h2 {
+        margin-top: 30px;
+        text-decoration: underline;
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    .bot {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    table{
+        border: 2px solid;
+        width: 600px;
+        height: auto;
+    }
+
+    td {
+        text-align: center;
+    }
+
+</style>
+
+<body>
+    <div class="top">
+        <div class="green">
+            <p>The email address you entered (____) is a VALID email address! Thank you!</p>
+        </div>
+    </div>
+    
+        <h2>Email Addresses Entered</h2>
+        <div class="bot">
+            <table>
+                <tr>
+                    <th>Email : </th>
+                    <th>Created At : </th>
+                </tr>
+                {% for email in all_email %}
+                <tr>
+                    <td>{{email.email}}</td>
+                    <td>{{email.created_at}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email form</title>
+</head>
+
+<style>
+    form {
+        width: auto;
+        height: auto;
+        text-align: center;
+        margin-top: 200px;
+    }
+
+    .text {
+        width: 400px;
+        height: 30px;
+    }
+
+    label {
+        font-size: 18pt;
+        margin-right: 40px;
+    }
+
+    .submit {
+        margin-top: 30px;
+        width: 80px;
+        height: 30px;
+    }
+
+    p {
+        text-align: center;
+        color: red;
+    }
+</style>
+
+<body>
+    
+    <form action="/process" method="post">
+        <div>
+            <label for="email">Email Address: </label>
+            <input type="text" class="text" name="email">
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="submit">
+        </div>
+    </form>
+
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+</body>
+
+</html>
